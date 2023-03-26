@@ -4,9 +4,10 @@ import axios from 'axios'
 import Head from 'next/head'
 import Link from 'next/link'
 import Lottie from 'lottie-react'
-import animationData from '@/arrow.json';
+import animationData from '../../public/arrow.json';
 import UserName from '@/src/component/UserName';
-import TopBar from '@/src/component/Top_bar';
+import TopBar from '@/src/component/top_bar';
+import Footer from '@/src/component/footer';
 
 
 export default function CoverPage() {
@@ -46,9 +47,10 @@ export default function CoverPage() {
                 speed={0.5}
                 className={styles.arrow_lottie}
         />
-
+        
         <img className={styles.cover_image} src="cover/cover(navy).png" alt="diary cover" />
       </div>
+      <Footer />
     </div>
 
   )
