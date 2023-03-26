@@ -44,7 +44,7 @@ export default function Prompts(props){
     <div className={styles.wrapper_prompt}>
       <button
         className={styles.btn_popup_close}
-        onClick={() => showBtnHandler}>
+        onClick={showBtnHandler}>
           <span dangerouslySetInnerHTML={{__html: '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L5 15" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><path d="M5 5L15 15" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>'}} />
       </button>
 
