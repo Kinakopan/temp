@@ -725,6 +725,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem;
+  box-shadow: 0px 0px 15px 0px #6a6a6a;
 }
 
 .cont_prompt_left,
@@ -909,6 +910,6 @@
   bottom: 10px;
   color:#de2c28;
   font-weight: 200;
-  display: flex; 
+  display: flex;
   justify-content: center;
 }
