@@ -19,6 +19,11 @@ npm i playwright
 # and
 npm i -D @playwright/test
 ```
+
+```bash
+# Test command: 
+npx playwright test
+```
 ## Getting Started
 
 First, run the development server:
