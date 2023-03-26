@@ -28,15 +28,6 @@ export default function SideMenu(){
         </li>
         <li className={styles.sidemenu_list_item}>
           <Link
-            href=""
-            className={styles.sidemenu_list_text}>
-              <img src="/icons/favorite.png"/>
-              Favorite Diary
-          </Link>
-          <span></span><span></span><span></span><span></span>
-        </li>
-        <li className={styles.sidemenu_list_item}>
-          <Link
             href="/cover"
             className={styles.sidemenu_list_text}>
               <img style={{padding:2}} src="/icons/book.png"/>
