@@ -12,6 +12,7 @@ import LocationInput from './api/location_input';
 import Prompts from '@/src/component/Prompts';
 import ShowPromptsBtn from '@/src/component/Prompts_btn';
 import SaveBtn from '@/src/component/Save_btn';
+import Footer from '@/src/component/footer';
 
 export default function Home({posts}) {
 
@@ -365,6 +366,7 @@ export default function Home({posts}) {
             <SaveBtn />
           </form>
         </div>
+        <Footer />
       </main>
 
     </div>

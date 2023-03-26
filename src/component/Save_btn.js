@@ -14,7 +14,7 @@ export default function SaveBtn() {
     //     <span>Save</span>
     //   </a>
     // </div><nav>
-    <button className={styles.btn}>
+    <button className={styles.btn} id="btn">
       Save
       <span></span><span></span><span></span><span></span>
     </button>
