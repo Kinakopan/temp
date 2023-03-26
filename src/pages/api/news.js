@@ -49,7 +49,10 @@ function News(props) {
 
   return (
     <div className={styles.news_Area}>
-      <button className={styles.icon} style={{alignSelf:"flex-end"}} onClick={handleNews}>
+      <button
+        className={styles.icon}
+        style={{alignSelf:"flex-end", cursor: "pointer"}}
+        onClick={handleNews}>
         <img src="/icons/coffee.png" style={{padding:2}}/>
         <div className={styles.tooltip_content} style={{left:"-80%",
         top:45 ,minWidth:"7rem"}}>
