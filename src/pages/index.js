@@ -203,7 +203,7 @@ export default function Home({posts}) {
               />
               {/*------------ Info bar ----------- */}
               <div className={styles.infoBar}>
-                <div class={`${styles.date} ${styles.icon}`}>
+                <div className={`${styles.date} ${styles.icon}`}>
                   <img style={{padding:2, marginRight:10}} src="/icons/calender.png" />
                   {today}
                 </div>
@@ -211,17 +211,20 @@ export default function Home({posts}) {
 
                   <News handleSave={handleNewsSave} />
 
-                  <ShowWeatherBtn
-                    showWeatherHandler={showWeatherHandler}
-                  />
+                  <div
+                    className={styles.wrapper_weahterBtn}>
+                    <ShowWeatherBtn
+                      showWeatherHandler={showWeatherHandler}
+                    />
 
-                  {/*------------ Location input ----------- */}
-                  <div className={styles.location_container}>
-                    {weatherIsOpen && <LocationInput
-                      location={location}
-                      setLocationChange={setLocationChange}
-                      searchLocation={searchLocation}
-                    />}
+                    {/*------------ Location input ----------- */}
+                    <div className={styles.location_container}>
+                      {weatherIsOpen && <LocationInput
+                        location={location}
+                        setLocationChange={setLocationChange}
+                        searchLocation={searchLocation}
+                      />}
+                    </div>
                   </div>
 
                   <ShowPromptsBtn

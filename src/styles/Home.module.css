@@ -372,7 +372,7 @@
 }
 
 .text_location {
-  width: 10rem;
+  width: 100%;
   padding: 0.5rem;
   background-color: #ffffff;
   height: 2rem;
@@ -467,13 +467,12 @@
   padding: 2rem;
   z-index: 2;
   width: 35rem;
-  /* margin-top: 1.5rem; */
   min-height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  right: -8.5rem;
-  top: 2.5rem;
+  right: 0;
+  top: 3rem;
   box-shadow: 0px 0px 15px 0px #6a6a6a;
 }
 
@@ -709,9 +708,8 @@
   font-family: "Kalam";
   font-size: 18px;
   position: absolute;
-  top: 100%;
+  top: 3.3rem;
   right: 0;
-  margin-top: 1rem;
   z-index: 2;
 }
 
@@ -743,10 +741,16 @@
   justify-content: space-between;
 }
 
+.wrapper_weahterBtn {
+  position: relative;
+  display: flex;
+}
 .location_container {
   position: absolute;
   top: -100%;
   right: 0;
+  width: 10rem;
+  z-index: 2;
 }
 
 .tool_bar {
