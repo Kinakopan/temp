@@ -359,6 +359,7 @@
 /*------- COMP Weather -------*/
 .wrapper_weather {
   width: 100%;
+  border-bottom: 1px solid #aaaaa88e;
 }
 
 .container_weather {
@@ -602,15 +603,14 @@
 .content_api {
   overflow-y: scroll;
   border: none;
+  height: 4rem;
 }
 
 .content_prompt {
-  height: 2rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #aaaaa88e;
 }
 
 .content_news {
-  height: 4rem;
 }
 
 .textarea_diaryContent {
