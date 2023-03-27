@@ -299,9 +299,9 @@
   font-family: "Raleway", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-/* .wrapper * {
-  color: black;
-} */
+.wrapper_diarylist {
+ flex-direction: row;
+}
 
 .main {
   display: flex;
