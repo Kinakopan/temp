@@ -2,7 +2,6 @@ import styles from '@/src/styles/SideMenu.module.css'
 import Link from 'next/link'
 import UserName from '@/src/component/UserName.js';
 
-// const PostList = () => <MyPosts />;
 export default function SideMenu(){
 
   return (
@@ -19,7 +18,7 @@ export default function SideMenu(){
         </li>
         <li className={styles.sidemenu_list_item}>
           <Link
-            href="/diarylist/"
+            href="/diarylist/diarylist"
             className={styles.sidemenu_list_text}>
               <img style={{padding:3}} src="/icons/list.png"/>
               Diary List

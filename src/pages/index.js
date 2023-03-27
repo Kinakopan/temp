@@ -72,18 +72,20 @@ export default function Home({posts}) {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [textContent, setTextContent] = useState('')
+  const [diaryEntry, setDiaryEntry] = useState('');
 
   // Save button - form
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isReadyToSave) {
-      setContent(
+      const content =
         "Date: " + today + "\n\n" +
         "Weather" + JSON.stringify(data) + "\n\n" +
         "News: " + newsAreaContent + "\n\n" +
         "Quote: " + savedPrompts + "\n\n" + "\n\n" +
-        "Your Day: " + textContent + "\n"
-      );
+        "Your Day: " + textContent + "\n";
+      setContent(content);
+      setDiaryEntry(content);
       const res = await axios.post('/api/posts', { title, content });
       console.log(res.data);
       setIsReadyToSave(false);

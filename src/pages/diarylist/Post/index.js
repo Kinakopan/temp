@@ -25,8 +25,7 @@ export async function getServerSideProps() {
   }
 }
 
-// const PostList = () => <MyPosts />;
-export default function PostList({posts}){
+export default function DiaryList({posts}){
 
   return (
     <div
