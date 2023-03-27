@@ -268,7 +268,7 @@ export default function Home({posts}) {
 
             <textarea
               disabled
-              style={{ fontFamily: fontFamily , fontSize:fontSize }}
+              style={{ fontFamily: fontFamily, fontSize: fontSize }}
               // value={savedPrompts.join('\n\n')}
               value={savedPrompts}
               className={`${styles.content_api} ${styles.content_prompt}`}
@@ -277,7 +277,7 @@ export default function Home({posts}) {
 
             <textarea
               disabled
-              style={{ fontFamily: fontFamily , fontSize:fontSize }}
+              style={{ fontFamily: fontFamily, fontSize: fontSize }}
               // value={newsAreaContent.join('\n\n')}
               value={newsAreaContent}
               className={`${styles.content_api} ${styles.content_news}`}
@@ -288,10 +288,12 @@ export default function Home({posts}) {
             <div className={styles.tool_bar}>
               {/*------------ Font Family ----------- */}
               <div className={styles.fontPicker_container}>
-                <p style={{ fontFamily: fontFamily, width:160}}> {fontFamily} </p>
+                <p style={{ fontFamily: fontFamily, width:160}}>
+                  {fontFamily}
+                </p>
                 <img
                   className={styles.icon}
-                  style={{width:15, height:10}}
+                  style={{ width:15, height:10, cursor: "pointer" }}
                   src="/icons/arrow_down.png"
                   alt="arrow_down"
                   onClick={handleClick}
@@ -304,21 +306,21 @@ export default function Home({posts}) {
                         <li style={{width:"100%"}}>
                           <button
                             onClick={() => handleFontChange('Helvetica')}
-                            style={{ fontFamily:"Helvetica "}}
+                            style={{ fontFamily:"Helvetica", cursor: "pointer" }}
                             className={styles.font_btn}
                           >Helvetica</button>
                         </li>
                         <li style={{width:"100%"}}>
                           <button
                             onClick={() => handleFontChange('Times New Roman')}
-                            style={{ fontFamily:"Times New Roman" }}
+                            style={{ fontFamily:"Times New Roman", cursor: "pointer" }}
                             className={styles.font_btn}
                           >Times New Roman</button>
                         </li>
                         <li style={{width:"100%"}}>
                           <button
                             onClick={() => handleFontChange('Raleway')}
-                            style={{ fontFamily:"Raleway" }}
+                            style={{ fontFamily:"Raleway", cursor: "pointer" }}
                             className={styles.font_btn}
                           >Raleway</button>
 
@@ -326,7 +328,7 @@ export default function Home({posts}) {
                         <li style={{width:"100%"}}>
                           <button
                             onClick={() => handleFontChange('Kalam')}
-                            style={{ fontFamily:"Kalam" }}
+                            style={{ fontFamily:"Kalam", cursor: "pointer" }}
                             className={styles.font_btn}
                           >Kalam</button>
                         </li>
@@ -336,11 +338,15 @@ export default function Home({posts}) {
                 )}
               </div>
               {/*------------ Font Size ----------- */}
-              <div className={styles.fontPicker_container} style={{borderLeft:"1px solid white", marginLeft:15}}>
-                <p style={{width:100}}> {fontSize} </p>
+              <div
+                className={styles.fontPicker_container}
+                style={{ borderLeft:"1px solid white", marginLeft:15 }}>
+                <p style={{ width:100 }}>
+                  {fontSize}
+                </p>
                 <img
                   className={styles.icon}
-                  style={{width:15, height:10}}
+                  style={{ width:15, height:10, cursor: "pointer" }}
                   src="/icons/arrow_down.png"
                   alt="arrow_down"
                   onClick={handleSizeClick}
@@ -353,21 +359,21 @@ export default function Home({posts}) {
                         <li style={{width:"100%"}}>
                           <button
                             onClick={() => handleFontSizeChange('16px')}
-                            style={{ fontSize:"16px"}}
+                            style={{ fontSize:"16px", cursor: "pointer" }}
                             className={styles.font_btn}
                           >16px</button>
                         </li>
                         <li style={{width:"100%"}}>
                           <button
                             onClick={() => handleFontSizeChange('18px')}
-                            style={{ fontSize:"18px" }}
+                            style={{ fontSize:"18px", cursor: "pointer" }}
                             className={styles.font_btn}
                           >18px</button>
                         </li>
                         <li style={{width:"100%"}}>
                           <button
                             onClick={() => handleFontSizeChange('24px')}
-                            style={{ fontSize:"24px" }}
+                            style={{ fontSize:"24px", cursor: "pointer" }}
                             className={styles.font_btn}
                           >24px</button>
 
@@ -375,7 +381,7 @@ export default function Home({posts}) {
                         <li style={{width:"100%"}}>
                           <button
                             onClick={() => handleFontSizeChange('32px')}
-                            style={{ fontSize:"32px" }}
+                            style={{ fontSize:"32px", cursor: "pointer" }}
                             className={styles.font_btn}
                           >32px</button>
                         </li>
@@ -387,7 +393,7 @@ export default function Home({posts}) {
             </div>
 
             <textarea
-              style={{ fontFamily: fontFamily , fontSize:fontSize }}
+              style={{ fontFamily: fontFamily, fontSize: fontSize }}
               value={textContent}
               className={styles.textarea_diaryContent}
               placeholder="Write about your day"
