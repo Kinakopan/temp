@@ -84,10 +84,6 @@ export default function Home({posts}) {
     console.log(res.data)
   }
 
-  // function handleContentChange(e) {
-  //   setContent(prevContent => prevContent + e.target.value);
-  // }
-
   // Change background button
   const [bgIndex, setBgIndex] = useState(0);
   const bgImages = ['cover/bedsheet.jpg', 'bg/bg_2.jpg', 'bg/bg_3.jpg', 'bg/bg_4.jpg', 'bg/bg_5.jpg', 'bg/bg_6.jpg'];

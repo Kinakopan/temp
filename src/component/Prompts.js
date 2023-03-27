@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from '@/src/styles/Home.module.css'
 import data from "@/src/data/Prompts.json";
 
-
 export default function Prompts(props){
 
   let promptsNum = data.length;
@@ -23,13 +22,20 @@ export default function Prompts(props){
     // setSavedPrompt(`${data[selectedIndex]?.sentence}\n\n--${data[selectedIndex]?.author}`);
   }
 
+  // function handleSave() {
+  //   const randomIndex = Math.floor(Math.random() * prompts.length);
+  //   const prompt = prompts[randomIndex];
+  //   setSavedPrompts(prevPrompts => [...prevPrompts, prompt]);
+  //   setPrompt(prompt);
+  //   setBarIsOpen(false);
+  //   setSavedPrompt([...savedPrompts, prompt]);
+  // }
+
   function handleSave() {
-    const randomIndex = Math.floor(Math.random() * prompts.length);
-    const prompt = prompts[randomIndex];
+    const prompt = `${sentence}\n\n--${author}`;
     setSavedPrompts(prevPrompts => [...prevPrompts, prompt]);
     setPrompt(prompt);
     setBarIsOpen(false);
-    setSavedPrompt([...savedPrompts, prompt]);
   }
 
   function showBtnHandler() {
