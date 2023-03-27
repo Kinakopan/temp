@@ -45,6 +45,7 @@ function News(props) {
   return (
     <div className={styles.news_Area}>
       <button
+        type="button"
         className={styles.icon}
         style={{alignSelf:"flex-end", cursor: "pointer"}}
         onClick={handleNews}>
@@ -63,6 +64,7 @@ function News(props) {
           >
 
           <button
+            type="button"
             className={styles.btn_popup_close}
             onClick={() => setShowPopup(false)}>
               <span dangerouslySetInnerHTML={{__html: '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L5 15" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><path d="M5 5L15 15" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>'}} />
@@ -81,6 +83,7 @@ function News(props) {
           <div className={styles.news_btn_cont}>
 
             <button
+              type="button"
               className={styles.news_btn_changeArticle}
               onClick={() => setCurrentArticleIndex((currentArticleIndex - 1 + loadedArticles.length) % loadedArticles.length)}
               disabled={currentArticleIndex === 0}>
@@ -88,6 +91,7 @@ function News(props) {
             </button>
 
             <button
+              type="button"
               className={styles.news_btn_changeArticle}
               onClick={() => setCurrentArticleIndex((currentArticleIndex + 1) % loadedArticles.length)}
               disabled={currentArticleIndex === loadedArticles.length - 1}>
@@ -95,6 +99,7 @@ function News(props) {
             </button>
 
             <button
+              type="button"
               className={styles.btn_popup_save}
               onClick={() =>
                 handleSave(
@@ -103,7 +108,7 @@ function News(props) {
                   loadedArticles[currentArticleIndex].image?.thumbnail?.contentUrl
                 )
               }>
-              Save
+              Select
             </button>
           </div>
         </div>
@@ -121,11 +126,13 @@ function SavedNews(props) {
           <h2 className={styles.news_displayName}>{selectedArticle.name}</h2>
           <p className={styles.news_description}>{selectedArticle.description}</p>
           <p className={styles.news_content}>{selectedArticle.content}</p>
-
+{/*
           <button
             className={styles.btn_popup_save}
-            onClick={() => handleSave(selectedArticle.name, selectedArticle.content, selectedArticle.url)}>Save
-          </button>
+            type="button"
+            onClick={() => handleSave(selectedArticle.name, selectedArticle.content, selectedArticle.url)}>
+              Select
+          </button> */}
         </>
       )}
     </div>
