@@ -16,18 +16,18 @@ import Footer from '@/src/component/Footer';
 
 export default function Home({posts}) {
   const [isReadyToSave, setIsReadyToSave] = useState(false);
-  // state variable to keep track of whether the data is ready to be sent to the database or not
   const [savedArticles, setSavedArticles] = useState([]);
-  const [savedPrompts, setSavedPrompts] = useState([]);
+  const [savedPrompts, setSelectPrompts] = useState([]);
+
+  // Get Today's Date
+  var today = new Date();
+  const month = today.toLocaleString('default', { month: 'long' });
+  const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][today.getDay()]
+
+  today = today.getFullYear() + ' ' + month + ' ' + String(today.getDate()) + ' ' + day;
 
   // News API
   const [newsAreaContent, setNewsAreaContent] = useState('');
-
-  // function handleNewsSave(name, content) {
-  //   console.log(`Saving article: ${name}, ${content}`);
-  //   setSavedArticles([...savedArticles, {name, content}]);
-  //   setNewsAreaContent(`${name}\n\n${content}\n\n`);
-  // };
 
   // Weather API
   const [weatherAreaContent, setWeatherAreaContent] = useState('');
@@ -65,13 +65,6 @@ export default function Home({posts}) {
     setLocation(event.target.value)
   }
 
-  // Get Today's Date
-  var today = new Date();
-  const month = today.toLocaleString('default', { month: 'long' });
-  const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][today.getDay()]
-
-  today = today.getFullYear() + ' ' + month + ' ' + String(today.getDate()) + ' ' + day;
-
   // Save the title and content into the server
   const apiKey = "4551243115444ba0a100a9567cd1b61d"
   const url = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-17&sortBy=publishedAt&apiKey=${apiKey}`
@@ -80,39 +73,41 @@ export default function Home({posts}) {
   const [content, setContent] = useState('')
   const [textContent, setTextContent] = useState('')
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   setContent(today   + "\n\n" +  newsAreaContent  + "\n\n" +  savedPrompts.join('\n\n') + "\n\n" + textContent)
-  //   const res = await axios.post('/api/posts', { title, content })
-  //   console.log(res.data)
-  // }
-
+  // Save button - form
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isReadyToSave) {
-      setContent(today   + "\n\n" +  newsAreaContent  + "\n\n" +  savedPrompts.join('\n\n') + "\n\n" + textContent);
+      setContent(
+        "Date: " + today + "\n\n" +
+        "Weather" + JSON.stringify(data) + "\n\n" +
+        "News: " + newsAreaContent + "\n\n" +
+        "Quote: " + savedPrompts + "\n\n" + "\n\n" +
+        "Your Day: " + textContent + "\n"
+      );
       const res = await axios.post('/api/posts', { title, content });
       console.log(res.data);
-      setIsReadyToSave(false); // reset the state variable
+      setIsReadyToSave(false);
     }
   }
 
+  // Save button
   function handleSave() {
     setIsReadyToSave(true);
   }
 
-  function handleNewsSave(name, content) {
+  // Select button - News Article
+  function handleNewsSelect(name, content) {
     console.log(`Saving article: ${name}, ${content}`);
     setSavedArticles([...savedArticles, {name, content}]);
     setNewsAreaContent(`${name}\n\n${content}\n\n`);
-    setIsReadyToSave(true); // set isReadyToSave to true when an article is saved
+    setIsReadyToSave(true);
   };
 
-  function setSavedPrompt(prompt) {
-    setSavedPrompts([...savedPrompts, prompt]);
-    setIsReadyToSave(true); // set isReadyToSave to true when a prompt is saved
+  // Select button - Prompt
+  function setSelectPrompt(props) {
+    setSelectPrompts(props);
+    setIsReadyToSave(true);
   }
-
 
   // Change background button
   const [bgIndex, setBgIndex] = useState(0);
@@ -149,10 +144,10 @@ export default function Home({posts}) {
     }
   }
 
-  function setSavedPrompt(prompt) {
-    setSavedPrompts([...savedPrompts, prompt]);
+  function closePopup() {
+    setWeatherIsOpen(false);
+    setBarIsOpen(false);
   }
-
 
   // Font family picker
   const [fontFamily, setFontFamily] = useState('Helvetica');
@@ -183,7 +178,6 @@ export default function Home({posts}) {
       setShowSizeDropdown(true);
     }
   };
-
 
   return (
     <div
@@ -234,7 +228,7 @@ export default function Home({posts}) {
                 </div>
                 <div className={styles.infoBar_right}>
 
-                  <News handleSave={handleNewsSave} />
+                  <News handleSave={handleNewsSelect} />
 
                   <div
                     className={styles.wrapper_weahterBtn}>
@@ -245,6 +239,7 @@ export default function Home({posts}) {
                     {/*------------ Location input ----------- */}
                     <div className={styles.location_container}>
                       {weatherIsOpen && <LocationInput
+                        onClose={closePopup}
                         location={location}
                         setLocationChange={setLocationChange}
                         searchLocation={searchLocation}
@@ -258,7 +253,9 @@ export default function Home({posts}) {
 
                   {/*------------ Prompts area ----------- */}
                   <div className={styles.prompts_bar}>
-                    {barIsOpen && <Prompts setSavedPrompt={setSavedPrompt} />}
+                    {barIsOpen && <Prompts
+                      onClose={closePopup}
+                      setSelectPrompt={setSelectPrompt} />}
                   </div>
                 </div>
               </div>
