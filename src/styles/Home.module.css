@@ -522,6 +522,7 @@
   border-radius: 30px;
   color: black;
   width: 100%;
+  height: 82vh;
   max-width: none;
   padding: 2rem;
   display: flex;
@@ -623,10 +624,10 @@
 
 .textarea_diaryContent {
   width: 100%;
-  height: 14rem;
+  height: 50%;
   overflow-y: scroll;
   background-image: url("/dot.jpeg");
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   padding: .5rem;
   outline: none;
   font-size: 20px;
