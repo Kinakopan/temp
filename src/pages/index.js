@@ -15,16 +15,19 @@ import SaveBtn from '@/src/component/Save_btn';
 import Footer from '@/src/component/Footer';
 
 export default function Home({posts}) {
+  const [isReadyToSave, setIsReadyToSave] = useState(false);
+  // state variable to keep track of whether the data is ready to be sent to the database or not
+  const [savedArticles, setSavedArticles] = useState([]);
+  const [savedPrompts, setSavedPrompts] = useState([]);
 
   // News API
   const [newsAreaContent, setNewsAreaContent] = useState('');
-  const [savedArticles, setSavedArticles] = useState([]);
 
-  function handleNewsSave(name, content) {
-    console.log(`Saving article: ${name}, ${content}`);
-    setSavedArticles([...savedArticles, {name, content}]);
-    setNewsAreaContent(`${name}\n\n${content}\n\n`);
-  };
+  // function handleNewsSave(name, content) {
+  //   console.log(`Saving article: ${name}, ${content}`);
+  //   setSavedArticles([...savedArticles, {name, content}]);
+  //   setNewsAreaContent(`${name}\n\n${content}\n\n`);
+  // };
 
   // Weather API
   const [weatherAreaContent, setWeatherAreaContent] = useState('');
@@ -77,12 +80,39 @@ export default function Home({posts}) {
   const [content, setContent] = useState('')
   const [textContent, setTextContent] = useState('')
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   setContent(today   + "\n\n" +  newsAreaContent  + "\n\n" +  savedPrompts.join('\n\n') + "\n\n" + textContent)
+  //   const res = await axios.post('/api/posts', { title, content })
+  //   console.log(res.data)
+  // }
+
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setContent(today   + "\n\n" +  newsAreaContent  + "\n\n" +  savedPrompts.join('\n\n') + "\n\n" + textContent)
-    const res = await axios.post('/api/posts', { title, content })
-    console.log(res.data)
+    e.preventDefault();
+    if (isReadyToSave) {
+      setContent(today   + "\n\n" +  newsAreaContent  + "\n\n" +  savedPrompts.join('\n\n') + "\n\n" + textContent);
+      const res = await axios.post('/api/posts', { title, content });
+      console.log(res.data);
+      setIsReadyToSave(false); // reset the state variable
+    }
   }
+
+  function handleSave() {
+    setIsReadyToSave(true);
+  }
+
+  function handleNewsSave(name, content) {
+    console.log(`Saving article: ${name}, ${content}`);
+    setSavedArticles([...savedArticles, {name, content}]);
+    setNewsAreaContent(`${name}\n\n${content}\n\n`);
+    setIsReadyToSave(true); // set isReadyToSave to true when an article is saved
+  };
+
+  function setSavedPrompt(prompt) {
+    setSavedPrompts([...savedPrompts, prompt]);
+    setIsReadyToSave(true); // set isReadyToSave to true when a prompt is saved
+  }
+
 
   // Change background button
   const [bgIndex, setBgIndex] = useState(0);
@@ -110,7 +140,6 @@ export default function Home({posts}) {
   // Prompts button
   const [barIsOpen, setBarIsOpen] = useState(false);
   const [prompt, setPrompt] = useState('');
-  const [savedPrompts, setSavedPrompts] = useState([]);
 
   function showBtnHandler() {
     if (barIsOpen) {
@@ -243,12 +272,19 @@ export default function Home({posts}) {
             <textarea
               disabled
               style={{ fontFamily: fontFamily , fontSize:fontSize }}
-              // value={weatherAreaContent + quoteAreaContent + newsAreaContent}
-              value={newsAreaContent + '\n\n' + savedPrompts.join('\n\n')}
-              className={styles.content_api}
-              placeholder="Saved quote & news article"
+              // value={savedPrompts.join('\n\n')}
+              value={savedPrompts}
+              className={`${styles.content_api} ${styles.content_prompt}`}
+              placeholder="Today's Quote"
+              />
 
-              // onChange={(e) => setNewsAreaContent(e.target.value)}
+            <textarea
+              disabled
+              style={{ fontFamily: fontFamily , fontSize:fontSize }}
+              // value={newsAreaContent.join('\n\n')}
+              value={newsAreaContent}
+              className={`${styles.content_api} ${styles.content_news}`}
+              placeholder="Today's News"
               />
 
             {/*------------ Font picker ----------- */}
@@ -362,7 +398,7 @@ export default function Home({posts}) {
               // onChange={handleContentChange}
               />
 
-            <SaveBtn />
+            <SaveBtn handleSave={handleSave}/>
           </form>
         </div>
         <Footer />

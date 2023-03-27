@@ -19,23 +19,6 @@ export default function Prompts(props){
     setSelectedIndex(Math.floor(Math.random() * promptsNum) + 1);
     setAuthor(data[selectedIndex]?.author);
     setSentence(data[selectedIndex]?.sentence);
-    // setSavedPrompt(`${data[selectedIndex]?.sentence}\n\n--${data[selectedIndex]?.author}`);
-  }
-
-  // function handleSave() {
-  //   const randomIndex = Math.floor(Math.random() * prompts.length);
-  //   const prompt = prompts[randomIndex];
-  //   setSavedPrompts(prevPrompts => [...prevPrompts, prompt]);
-  //   setPrompt(prompt);
-  //   setBarIsOpen(false);
-  //   setSavedPrompt([...savedPrompts, prompt]);
-  // }
-
-  function handleSave() {
-    const prompt = `${sentence}\n\n--${author}`;
-    setSavedPrompts(prevPrompts => [...prevPrompts, prompt]);
-    setPrompt(prompt);
-    setBarIsOpen(false);
   }
 
   function showBtnHandler() {
@@ -69,7 +52,7 @@ export default function Prompts(props){
 
       <button
         className={styles.btn_popup_save}
-        onClick={() => props.setSavedPrompt(`${sentence}\n\n--${author}`)}>Save
+        onClick={() => props.setSavedPrompt(`${sentence}\n\n--${author}`)}>Select
       </button>
     </div>
   </div>

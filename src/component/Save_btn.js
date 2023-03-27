@@ -1,7 +1,7 @@
 import styles from '@/src/styles/SaveBtn.module.css'
 
 
-export default function SaveBtn() {
+export default function SaveBtn({ handleSave }) {
   return (
     // <div className={styles.save_btn_wrapper}>
     //   <a href="#" className={styles.my_super_cool_btn}>
@@ -14,11 +14,12 @@ export default function SaveBtn() {
     //     <span>Save</span>
     //   </a>
     // </div><nav>
-    <button className={styles.btn} id="btn">
+    <button
+      className={styles.btn}
+      onClick={handleSave}
+      id="btn">
       Save
       <span></span><span></span><span></span><span></span>
     </button>
-
   )
-
 }

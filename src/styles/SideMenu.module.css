@@ -4,7 +4,7 @@
   flex-direction: column;
   width: 20%;
   min-width: 140px;
-  height: calc(100% - 70px);
+  height: calc(100% - 59px);
   position: absolute;
   z-index: 1;
   top: 70px;
