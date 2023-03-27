@@ -77,9 +77,10 @@ export default function Home({posts}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isReadyToSave) {
+      const weatherData = JSON.stringify(data);
       setContent(
         "Date: " + today + "\n\n" +
-        "Weather" + JSON.stringify(data) + "\n\n" +
+        "Weather" + data + "\n\n" +
         "News: " + newsAreaContent + "\n\n" +
         "Quote: " + savedPrompts + "\n\n" + "\n\n" +
         "Your Day: " + textContent + "\n"
@@ -87,6 +88,7 @@ export default function Home({posts}) {
       const res = await axios.post('/api/posts', { title, content });
       console.log(res.data);
       setIsReadyToSave(false);
+      setData(data);
     }
   }
 
@@ -401,6 +403,7 @@ export default function Home({posts}) {
 
             <SaveBtn handleSave={handleSave}/>
           </form>
+          {/* {data && <DiaryList diaryEntry={{ weatherData: JSON.stringify(data) }} />} */}
         </div>
         <Footer />
       </main>
