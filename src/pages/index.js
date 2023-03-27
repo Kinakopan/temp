@@ -108,7 +108,7 @@ export default function Home({posts}) {
   // Select button - Prompt
   function setSelectPrompt(props) {
     setSelectPrompts(props);
-    setIsReadyToSave(true);
+    setIsReadyToSave(false);
   }
 
   // Change background button
