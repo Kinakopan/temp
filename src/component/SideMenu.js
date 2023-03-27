@@ -19,7 +19,7 @@ export default function SideMenu(){
         </li>
         <li className={styles.sidemenu_list_item}>
           <Link
-            href="/PostList/"
+            href="/diarylist/"
             className={styles.sidemenu_list_text}>
               <img style={{padding:3}} src="/icons/list.png"/>
               Diary List
