@@ -40,11 +40,6 @@ function News(props) {
         props.setError('An error occurred while fetching news.');
       });
 
-    // const handleSave = (article) => {
-    //   console.log("Saving article:", article);
-    //   props.handleSave(article.title, article.content, article.media);
-    // }
-
   };
 
   return (
