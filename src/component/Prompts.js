@@ -31,7 +31,7 @@ export default function Prompts(props){
       <button
         className={styles.btn_popup_close}
         onClick={props.onClose}>
-          <span dangerouslySetInnerHTML={{__html: '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L5 15" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><path d="M5 5L15 15" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>'}} />
+          <span dangerouslySetInnerHTML={{__html: '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L5 15" stroke="#de2c28" strokeWidth="2" strokeLinecap="round"/><path d="M5 5L15 15" stroke="#de2c28" strokeWidth="2" strokeLinecap="round"/></svg>'}} />
       </button>
 
       <div className={styles.cont_prompt_left}>
@@ -44,7 +44,7 @@ export default function Prompts(props){
         className={`${styles.icon} ${styles.icon_changePrompt}`}
         onClick={generateQuote}
         >
-        <img style={{padding:4}} src="/icons/change.png" />
+        <img style={{padding:5}} src="/icons/change.png" />
       </button>
 
       <button

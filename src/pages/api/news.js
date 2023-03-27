@@ -58,16 +58,13 @@ function News(props) {
 
       {error && <p>{error}</p>}
       {showPopup && loadedArticles.length > 0 && (
-        <div
-          style={{border: '1px solid black'}}
-          className={styles.news_displayBox}
-          >
+        <div className={styles.news_displayBox}>
 
           <button
             type="button"
             className={styles.btn_popup_close}
             onClick={() => setShowPopup(false)}>
-              <span dangerouslySetInnerHTML={{__html: '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L5 15" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><path d="M5 5L15 15" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>'}} />
+              <span dangerouslySetInnerHTML={{__html: '<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L5 15" stroke="#de2c28" strokeWidth="2" strokeLinecap="round"/><path d="M5 5L15 15" stroke="#de2c28" strokeWidth="2" strokeLinecap="round"/></svg>'}} />
           </button>
 
           <h2 className={styles.news_displayName}>
