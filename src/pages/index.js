@@ -208,7 +208,7 @@ export default function Home({posts}) {
           </button>
 
           <form
-            className={`${styles.paper} ${styles.form}`}
+            className={styles.paper}
             onSubmit={handleSubmit}
             >
 
@@ -404,9 +404,9 @@ export default function Home({posts}) {
             <SaveBtn handleSave={handleSave}/>
           </form>
         </div>
-        <Footer />
+       
       </main>
-
+      <Footer />
     </div>
   )
 }
