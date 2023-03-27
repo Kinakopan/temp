@@ -300,10 +300,12 @@
 }
 
 .wrapper_diarylist {
- flex-direction: row;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -926,7 +928,7 @@
 .footer_container {
   width: 100%;
   position: absolute;
-  bottom: 10px;
+  bottom: 0;
   color:#de2c28;
   font-weight: 200;
   display: flex;
