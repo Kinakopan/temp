@@ -36,7 +36,7 @@ export default function Home({posts}) {
   const [weather, setWeather] = useState();
   const [errorMessage, setErrorMessage] = useState('');
 
-  var weatherApiKey = "95cd390841f1bbe052afd1a88c4fd163"
+  var weatherApiKey = process.env.WEATHER_API_KEY;
   var weatherLang = "en";
   var weatherUnits = "metric";
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${weatherUnits}&appid=${weatherApiKey}&lang=${weatherLang}`
@@ -78,12 +78,13 @@ export default function Home({posts}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isReadyToSave) {
-      const content =
-        "Date: " + today + "\n\n" +
-        "Weather" + JSON.stringify(data) + "\n\n" +
-        "News: " + newsAreaContent + "\n\n" +
-        "Quote: " + savedPrompts + "\n\n" + "\n\n" +
-        "Your Day: " + textContent + "\n";
+      const content = `
+        ${today},
+        ${weather ? weather.map(w => `${w.main}: ${w.description}`).join('\n') : ''},
+        ${newsAreaContent},
+        ${savedPrompts},
+        ${textContent}
+      `;
       setContent(content);
       setDiaryEntry(content);
       const res = await axios.post('/api/posts', { title, content });
@@ -108,7 +109,7 @@ export default function Home({posts}) {
   // Select button - Prompt
   function setSelectPrompt(props) {
     setSelectPrompts(props);
-    setIsReadyToSave(true);
+    setIsReadyToSave(false);
   }
 
   // Change background button
@@ -422,19 +423,19 @@ export async function getServerSideProps() {
   }
 }
 
-export const MyPosts = (props) => {
+export const MyPosts = (props ) => {
   const { posts } = props;
-
   return (
-    <ul className={styles.post_list}>
+    <ul
+      className={styles.post_list}>
       {posts.map((post) => (
         <li
           key={post.id}
           className={styles.post_listitem}>
-          <a href="">
+          <a href="" style={{fontFamily: `${fontFamily}`}}>
             <p>{}</p>
             <h2>{post.title}</h2>
-            <p>{post.content}</p>
+            <p className={styles.post_contentstyle} style={{fontFamily: `${fontFamily}`}}>{post.content}</p>
           </a>
         </li>
       ))}

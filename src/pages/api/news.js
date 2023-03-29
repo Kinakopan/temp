@@ -16,7 +16,7 @@ function News(props) {
       params: {safeSearch: 'Off', textFormat: 'Raw'},
       headers: {
         'X-BingApis-SDK': 'true',
-        'X-RapidAPI-Key': '9abe612a0bmsh2f858e90285d182p19c479jsn8b867c1aa0e7',
+        'X-RapidAPI-Key': process.env.NEWS_API_KEY,
         'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com'
       }
     };

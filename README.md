@@ -5,7 +5,7 @@ Miood Diary is an online platform designed for users to write and organize their
 ### Intuitive
 Experience an enjoyable writing experience with our user-friendly interface. Navigate the website with ease, and write your diary entries with confidence and ease."
 ### Inspirational
-Get inspiration with a diverse range of content that includes current events, inspiring quotes, and thought-provoking ideas. 
+Get inspiration with a diverse range of content that includes current events, inspiring quotes, and thought-provoking ideas.
 
 ### Customizable
 Personalize the diary entries with beautiful fonts and backgrounds to unlock user's creativity, inspiration, and self-expression.
@@ -21,7 +21,7 @@ npm i -D @playwright/test
 ```
 
 ```bash
-# Test command: 
+# Test command:
 npx playwright test
 ```
 ## Getting Started
@@ -40,6 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Data Sources
 OpenWeather [https://openweathermap.org/]
+bing-news-search[https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/]
 
 ## References
 https://journey.cloud/
