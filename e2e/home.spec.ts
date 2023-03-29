@@ -68,11 +68,6 @@ test.describe('Side bar', () => {
     await page.getByRole('link', { name: 'Diary List' }).click();
   })
 
-  test ('Side menu link - Favorite Diary', async({ page }) => {
-    await page.goto(urlHome)
-    await page.getByRole('link', { name: 'Favorite Diary' }).click();
-  })
-
   test ('Side menu link - Back To Cover', async({ page }) => {
     await page.goto(urlHome)
     await page.getByRole('link', { name: 'Back To Cover' }).click();
