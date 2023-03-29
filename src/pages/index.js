@@ -36,7 +36,7 @@ export default function Home({posts}) {
   const [weather, setWeather] = useState();
   const [errorMessage, setErrorMessage] = useState('');
 
-  var weatherApiKey = "95cd390841f1bbe052afd1a88c4fd163"
+  var weatherApiKey = process.env.WEATHER_API_KEY;
   var weatherLang = "en";
   var weatherUnits = "metric";
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${weatherUnits}&appid=${weatherApiKey}&lang=${weatherLang}`
@@ -423,50 +423,22 @@ export async function getServerSideProps() {
   }
 }
 
-export const MyPosts = (props) => {
+export const MyPosts = (props ) => {
   const { posts } = props;
-
   return (
-    <ul className={styles.post_list}>
+    <ul
+      className={styles.post_list}>
       {posts.map((post) => (
         <li
           key={post.id}
           className={styles.post_listitem}>
-          <a href="">
+          <a href="" style={{fontFamily: `${fontFamily}`}}>
             <p>{}</p>
             <h2>{post.title}</h2>
-            <p>{post.content}</p>
+            <p className={styles.post_contentstyle} style={{fontFamily: `${fontFamily}`}}>{post.content}</p>
           </a>
         </li>
       ))}
     </ul>
   )
 }
-
-// export const MyPosts = (props) => {
-//   const { posts } = props;
-
-//   const addWeatherIcon = (post) => {
-//     const weather = post.weather && post.weather[0];
-//     const weatherIcon = weather && WEATHER_ICON_MAP[weather.main];
-//     return (
-//       <div className={styles.weatherIcon}>
-//         {weatherIcon && <img src={weatherIcon} alt={weather.main} />}
-//       </div>
-//     );
-//   };
-
-//   return (
-//     <ul className={styles.post_list}>
-//       {posts.map((post) => (
-//         <li key={post.id} className={styles.post_listitem}>
-//           <a href="">
-//             {addWeatherIcon(post)}
-//             <h2>{post.title}</h2>
-//             <p>{post.content}</p>
-//           </a>
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// };

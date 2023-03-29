@@ -968,5 +968,9 @@
   justify-content: center;
 }
 
+.post_contentstyle * {
+  font-family: inherit;
+  font-size: inherit;
+}
 
 /* testing */

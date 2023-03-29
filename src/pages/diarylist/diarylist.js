@@ -47,7 +47,7 @@ export async function getServerSideProps() {
 }
 
 // const Diarylist = () => <MyPosts />;
-export default function Diarylist({ posts }){
+export default function Diarylist({ posts, fontFamily, fontSize }){
 
   // Extract weather string from post content
   {posts.map((post) => {
@@ -83,7 +83,7 @@ export default function Diarylist({ posts }){
                 <div className={styles.postWrapper}>
                   <div className={styles.postCont}>
                     <a  className={styles.postLink} href="">
-                      <h2>{post.title}</h2>
+                      <h2 >{post.title}</h2>
                         {post.content.split(',').map((line, index) => {
                           if (line.trim() !== '') {
                             if (index === 0) {
