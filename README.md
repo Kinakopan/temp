@@ -40,6 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Data Sources
 OpenWeather [https://openweathermap.org/]
+
 bing-news-search[https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1/]
 
 ## References
