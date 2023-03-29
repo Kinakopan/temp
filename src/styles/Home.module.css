@@ -302,6 +302,8 @@
 .wrapper_diarylist {
   flex-direction: row;
   align-items: flex-start;
+  background: #e6e6e6;
+  color: black;
 }
 
 .main {
@@ -399,6 +401,37 @@
   align-items: flex-start;
   list-style: none;
   line-height: 3rem;
+}
+
+.post_listitem {
+  background: #ffffff94;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.postLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #aaaaa88e;
+  text-align: left;
+}
+
+.postLine {
+  display: flex;
+}
+
+.postLine_ttl {
+  font-weight: bold;
+  width: 7rem;
+}
+
+.postLine_cont {
+  flex: 1;
 }
 
 
@@ -928,7 +961,7 @@
 .footer_container {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   color:#de2c28;
   font-weight: 200;
   display: flex;

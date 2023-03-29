@@ -78,12 +78,13 @@ export default function Home({posts}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isReadyToSave) {
-      const content =
-        "Date: " + today + "\n\n" +
-        "Weather" + JSON.stringify(data) + "\n\n" +
-        "News: " + newsAreaContent + "\n\n" +
-        "Quote: " + savedPrompts + "\n\n" + "\n\n" +
-        "Your Day: " + textContent + "\n";
+      const content = `
+        ${today},
+        ${weather ? weather.map(w => `${w.main}: ${w.description}`).join('\n') : ''},
+        ${newsAreaContent},
+        ${savedPrompts},
+        ${textContent}
+      `;
       setContent(content);
       setDiaryEntry(content);
       const res = await axios.post('/api/posts', { title, content });
@@ -441,3 +442,31 @@ export const MyPosts = (props) => {
     </ul>
   )
 }
+
+// export const MyPosts = (props) => {
+//   const { posts } = props;
+
+//   const addWeatherIcon = (post) => {
+//     const weather = post.weather && post.weather[0];
+//     const weatherIcon = weather && WEATHER_ICON_MAP[weather.main];
+//     return (
+//       <div className={styles.weatherIcon}>
+//         {weatherIcon && <img src={weatherIcon} alt={weather.main} />}
+//       </div>
+//     );
+//   };
+
+//   return (
+//     <ul className={styles.post_list}>
+//       {posts.map((post) => (
+//         <li key={post.id} className={styles.post_listitem}>
+//           <a href="">
+//             {addWeatherIcon(post)}
+//             <h2>{post.title}</h2>
+//             <p>{post.content}</p>
+//           </a>
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// };
