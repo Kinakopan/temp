@@ -7,7 +7,6 @@ import TopBar from '../../component/top_bar';
 import SideMenu from '../../component/SideMenu';
 import { MyPosts } from '../../pages/index';
 import UserName from '../../component/UserName';
-import Weather from '../../pages/api/weather';
 import Footer from '../../component/footer';
 
 export async function getServerSideProps() {
@@ -29,7 +28,7 @@ export async function getServerSideProps() {
 }
 
 // const Diarylist = () => <MyPosts />;
-export default function Diarylist({ posts, fontFamily, fontSize }){
+export default function Diarylist({ posts }){
 
   // Extract weather string from post content
   {posts.map((post) => {
@@ -81,11 +80,6 @@ export default function Diarylist({ posts, fontFamily, fontSize }){
                             } else if (index === 2) {
                               return <p  className={styles.postLine} key={index}>
                                 <span className={styles.postLine_ttl}>News: </span>
-                                <span className={styles.postLine_cont}>{line}</span>
-                              </p>;
-                            } else if (index === 3) {
-                              return <p  className={styles.postLine} key={index}>
-                                <span className={styles.postLine_ttl}>Quote: </span>
                                 <span className={styles.postLine_cont}>{line}</span>
                               </p>;
                             } else if (index === 4) {
