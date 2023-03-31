@@ -1,7 +1,6 @@
 import styles from '../../styles/Home.module.css'
 import React, { useState, useEffect } from 'react'
 import { prisma } from '../../../server/db/client'
-import axios from 'axios'
 import Head from 'next/head'
 import TopBar from '../../component/top_bar';
 import SideMenu from '../../component/SideMenu';
@@ -28,14 +27,11 @@ export async function getServerSideProps() {
 }
 
 // const Diarylist = () => <MyPosts />;
-export default function Diarylist({ posts }){
+export default function Diarylist({ posts, fontFamily, fontSize }){
 
   // Extract weather string from post content
   {posts.map((post) => {
     const contentLines = post.content.split('\n');
-    const weatherLine = contentLines.find((line) => line.startsWith('Weather: '));
-    const weather = weatherLine ? weatherLine.slice(9) : '';
-    // ...
   })}
 
   return (
@@ -74,17 +70,12 @@ export default function Diarylist({ posts }){
                               </p>;
                             } else if (index === 1) {
                               return <p  className={styles.postLine} key={index}>
-                                <span className={styles.postLine_ttl}>Weather: </span>
+                                <span className={styles.postLine_ttl}>My Thoght: </span>
                                 <span className={styles.postLine_cont}>{line}</span>
                               </p>;
                             } else if (index === 2) {
                               return <p  className={styles.postLine} key={index}>
                                 <span className={styles.postLine_ttl}>News: </span>
-                                <span className={styles.postLine_cont}>{line}</span>
-                              </p>;
-                            } else if (index === 4) {
-                              return <p  className={styles.postLine} key={index}>
-                                <span className={styles.postLine_ttl}>Your Day: </span>
                                 <span className={styles.postLine_cont}>{line}</span>
                               </p>;
                             }
